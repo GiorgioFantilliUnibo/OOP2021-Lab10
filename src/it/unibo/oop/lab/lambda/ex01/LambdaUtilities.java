@@ -100,7 +100,7 @@ public final class LambdaUtilities {
     public static <K, V> Map<K, V> fill(final Map<K, Optional<V>> map, final Supplier<V> def) {
         final Map<K, V> retMap = new HashMap<>();
         map.forEach((k, v) -> retMap.put(k, v.orElse(def.get())));
-        return null;
+        return retMap;
     }
 
     /**
