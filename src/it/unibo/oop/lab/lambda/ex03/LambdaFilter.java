@@ -6,7 +6,9 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
 import java.awt.Toolkit;
+import java.util.Arrays;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -43,10 +45,13 @@ public final class LambdaFilter extends JFrame {
         // CHARS_COUNT("Count the characters", s -> Integer.toString(s.length())),
 
         LINES_COUNT("Count the lines", s -> Long.toString(s.chars().filter(c -> c == '\n')
-                                                                   .count() + 1));
-        // LINES_COUNT("Count the lines", s -> Integer.toString(s.split("\r\n|\r|\n").length));
-//        
-//        WORDS_SORT("", ),
+                                                                   .count() + 1)),
+        // LINES_COUNT("Count the lines", s -> Integer.toString(s.split("\r\n|\r|\n").length)),
+
+        WORDS_SORT("Order the words", s -> Arrays.asList(s.split("(\\s|\\p{Punct})+"))
+                                                 .stream()
+                                                 .sorted()
+                                                 .collect(Collectors.joining("\n")));
 //        
 //        WORDS_COUNT("", );
 
