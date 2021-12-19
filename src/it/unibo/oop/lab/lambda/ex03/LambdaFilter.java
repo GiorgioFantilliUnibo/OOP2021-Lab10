@@ -37,7 +37,7 @@ public final class LambdaFilter extends JFrame {
     private enum Command {
         IDENTITY("No modifications", Function.identity()),
         
-        LOWER_CASE("", ),
+        LOWER_CASE("Convert to lowercase", String::toLowerCase),
         
         CHARS_NUMBER("", ),
         
