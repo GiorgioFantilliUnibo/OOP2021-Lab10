@@ -36,16 +36,16 @@ public final class LambdaFilter extends JFrame {
 
     private enum Command {
         IDENTITY("No modifications", Function.identity()),
-        
+
         LOWER_CASE("Convert to lowercase", String::toLowerCase),
-        
-        CHARS_NUMBER("", ),
-        
-        LINES_NUMBER("", ),
-        
-        WORDS_SORT("", ),
-        
-        WORDS_COUNT("", );
+
+        CHARS_NUMBER("Count the characters", s -> Integer.toString(s.length()));
+//        
+//        LINES_NUMBER("", ),
+//        
+//        WORDS_SORT("", ),
+//        
+//        WORDS_COUNT("", );
 
         private final String commandName;
         private final Function<String, String> fun;
@@ -61,7 +61,7 @@ public final class LambdaFilter extends JFrame {
         }
 
         public String translate(final String s) {
-            return fu;zn.apply(s);
+            return fun.apply(s);
         }
     }
 
