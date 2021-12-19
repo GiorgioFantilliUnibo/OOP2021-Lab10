@@ -39,9 +39,10 @@ public final class LambdaFilter extends JFrame {
 
         LOWER_CASE("Convert to lowercase", String::toLowerCase),
 
-        CHARS_COUNT("Count the characters", s -> Integer.toString(s.length())),
-        
-        LINES_COUNT("", );
+        CHARS_COUNT("Count the characters", s -> Long.toString(s.chars().count())),
+        // CHARS_COUNT("Count the characters", s -> Integer.toString(s.length())),
+
+        LINES_COUNT("Count the lines", s -> Integer.toString(s.split("\r\n|\r|\n").length));
 //        
 //        WORDS_SORT("", ),
 //        
