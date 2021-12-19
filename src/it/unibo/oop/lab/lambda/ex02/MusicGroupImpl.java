@@ -1,5 +1,6 @@
 package it.unibo.oop.lab.lambda.ex02;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -74,7 +75,11 @@ public final class MusicGroupImpl implements MusicGroup {
 
     @Override
     public Optional<String> longestAlbum() {
-        return null;
+        return this.songs.stream().collect(Collectors.groupingBy(Song::getAlbumName, Collectors.summingDouble(Song::getDuration)))
+                                  .entrySet()
+                                  .stream()
+                                  .collect(Collectors.maxBy(Comparator.comparingDouble(Entry::getValue)))
+                                  .flatMap(Entry::getKey);
     }
 
     private static final class Song {
