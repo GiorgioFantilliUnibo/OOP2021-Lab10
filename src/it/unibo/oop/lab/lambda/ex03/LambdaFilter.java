@@ -35,7 +35,17 @@ public final class LambdaFilter extends JFrame {
     private static final long serialVersionUID = 1760990730218643730L;
 
     private enum Command {
-        IDENTITY("No modifications", Function.identity());
+        IDENTITY("No modifications", Function.identity()),
+        
+        LOWER_CASE("", ),
+        
+        CHARS_NUMBER("", ),
+        
+        LINES_NUMBER("", ),
+        
+        WORDS_SORT("", ),
+        
+        WORDS_COUNT("", );
 
         private final String commandName;
         private final Function<String, String> fun;
@@ -51,7 +61,7 @@ public final class LambdaFilter extends JFrame {
         }
 
         public String translate(final String s) {
-            return fun.apply(s);
+            return fu;zn.apply(s);
         }
     }
 
